@@ -28,3 +28,14 @@ JSON estrito com `service`, `fit` (1–5), `rationale`, `verifyBeforeContact`, `
 
 ## Privacidade e dados
 Somente dados públicos de estabelecimento e IDs OSM. Não incluir informações pessoais de proprietários, clientes ou funcionários. Referenciar OpenStreetMap contributors (ODbL).
+
+## Canais de proposta — v0.3
+
+As mensagens de prospecção são feitas **exclusivamente como rascunho**, para um dos canais escolhidos pela fundadora:
+
+- **WhatsApp:** mensagem curta, amigável, contextual e sem assunto; ideal até 500 caracteres. Não confunda número encontrado na internet com WhatsApp comercial verificado.
+- **E-mail:** assunto objetivo, introdução, proposta de conversa e assinatura SANSA. Não inclua preço, prazo nem alegações não comprovadas.
+
+`LocalProspect.contactWhatsapp` e `LocalProspect.contactEmail` são contatos comerciais inseridos e editáveis manualmente. Nenhum dado de contato entra nos prompts públicos versionados. Valide canal e contato antes de criar rascunho. É permitido existir um rascunho pendente por canal em uma oportunidade, sem duplicar o mesmo canal.
+
+**Envio:** depois de aprovado, o sistema abre `wa.me` ou `mailto:` com texto preenchido. A pessoa confirma o envio no aplicativo; abrir o link não comprova entrega, resposta ou aceite. O backend não aciona WhatsApp Business API nem SMTP/Gmail automaticamente. Respeite recusa e não insistir.
