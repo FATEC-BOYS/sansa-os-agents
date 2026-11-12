@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SANSA OS Proposed Action",
+  "type": "object",
+  "required": [
+    "agent",
+    "kind",
+    "title",
+    "summary",
+    "content",
+    "requiresApproval",
+    "status"
+  ],
+  "properties": {
+    "agent": {
+      "enum": [
+        "commercial",
+        "customer_success",
+        "creative",
+        "projects",
+        "finance",
+        "operations"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "email_draft",
+        "followup_draft",
+        "briefing",
+        "internal_note",
+        "project_task"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 5
+    },
+    "content": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiresApproval": {
+      "const": true
+    },
+    "status": {
+      "const": "pending_approval"
+    }
+  },
+  "additionalProperties": false
+}
