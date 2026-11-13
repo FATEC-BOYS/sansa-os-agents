@@ -1,16 +1,24 @@
 {
   "name": "@sansa-os/agents",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "tsx src/runtime.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/runtime.js",
     "test": "tsx --test evals/*.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.9.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "dependencies": {
     "zod": "^3.25.0"
   }
 }
