@@ -7,7 +7,7 @@ export const AgentKind = z.enum([
 
 export const ProposedAction = z.object({
   agent: AgentKind,
-  kind: z.enum(["email_draft", "followup_draft", "briefing", "internal_note", "project_task"]),
+  kind: z.enum(["email_draft", "whatsapp_draft", "followup_draft", "briefing", "internal_note", "project_task"]),
   title: z.string().min(3).max(160),
   summary: z.string().min(5).max(500),
   content: z.string().min(1).max(20000),
