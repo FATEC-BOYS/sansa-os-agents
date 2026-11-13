@@ -66,3 +66,6 @@ Veja [ROADMAP-SANSA-OS.md](ROADMAP-SANSA-OS.md) para o acompanhamento consolidad
 
 ## Zoho Mail — leitura comercial
 O worker consulta `GET /api/email/status` e, se a integração tiver credenciais, executa `POST /api/email/sync` antes da rotina comercial. A API faz a leitura IMAP, deduplica as mensagens e registra rascunhos pendentes; o worker nunca recebe a senha ou o conteúdo completo dos e-mails. A sincronização acontece **nos dias úteis às 10h de São Paulo**, conforme o cron atual, e pode ser iniciada manualmente a qualquer hora no dashboard. Sem autorização, a integração fica bloqueada sem afetar a prospecção existente. **Nenhum e-mail é enviado.**
+
+## Backlog técnico gerenciado
+O plano está organizado em **6 épicos e 33 issues executáveis**, distribuídas entre `sansa-os-agents`, `sansa-os-backend-` e `sansa-os-frontend`. Consulte [BACKLOG-ISSUES.md](./BACKLOG-ISSUES.md) para prioridades, dependências, responsáveis a definir, critérios de aceite, estimativas iniciais (não prazos) e uma proposta de sequência de releases. Issues só são concluídas com evidências, não por criação do ticket ou merge.
