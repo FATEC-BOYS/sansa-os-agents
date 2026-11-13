@@ -4,6 +4,8 @@
 > Fonte de verdade do comercial: planilha `SANSA | Controle de Prospecção` existente.
 > Não alterar automações existentes ou substituir CRM sem autorização.
 
+> **Issues detalhadas:** [BACKLOG-ISSUES.md](./BACKLOG-ISSUES.md) — 6 épicos e 33 issues com subtarefas, aceite, testes, dependências e estimativas. Este documento continua como visão funcional; GitHub Issues é a fonte de acompanhamento por tarefa. Não marcar item concluído somente porque a issue foi criada.
+
 ## Prioridades imediatas (organizadas em 12/11/2026)
 
 ### P0 — Concluir a conexão Zoho Mail ↔ SANSA OS (depende de autorização da fundadora)
