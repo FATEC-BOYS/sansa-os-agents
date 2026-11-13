@@ -60,3 +60,6 @@ npm run start
 ```
 
 **Status comprovável:** a API registra `AgentRun` por agente/data, e o dashboard pode exibir o último status. Ausência de oportunidades elegíveis gera relatório de rodada concluída com zero rascunhos; integração do CRM pendente gera `blocked`. Nenhuma execução é declarada feita apenas porque um cron está agendado.
+
+## Roteiro mantido no repositório
+Veja [ROADMAP-SANSA-OS.md](ROADMAP-SANSA-OS.md) para o acompanhamento consolidado de CRM, Meta, os cinco agentes, propostas, negociações, pagamentos e integrações futuras. Concluir código e passar no CI não equivale a uma integração externa autenticada.
