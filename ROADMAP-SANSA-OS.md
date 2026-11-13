@@ -1,8 +1,37 @@
 # SANSA OS · Plano de execução e pendências
 
-> Atualizado em 12/11/2026. **Publicação de código não é sinônimo de integração operando.**
+> Atualizado em 12/11/2026, após ativação do Zoho Mail. **Publicação de código não é sinônimo de integração operando.**
 > Fonte de verdade do comercial: planilha `SANSA | Controle de Prospecção` existente.
 > Não alterar automações existentes ou substituir CRM sem autorização.
+
+## Prioridades imediatas (organizadas em 12/11/2026)
+
+### P0 — Concluir a conexão Zoho Mail ↔ SANSA OS (depende de autorização da fundadora)
+
+- [x] `comercial@sansadigital.com.br` ativado no Zoho; teste Gmail → Zoho → Gmail confirmado, com autenticação SPF/DKIM/DMARC aprovada.
+- [x] Código de leitura IMAP somente leitura, deduplicação e criação de rascunhos preparado; aba **E-mail comercial** e rotina do worker publicadas.
+- [ ] No **Zoho Mail**, habilitar acesso IMAP da caixa existente (sem criar outra licença).
+- [ ] Em **Zoho Accounts → Segurança**, habilitar MFA se necessário e gerar **senha de aplicativo SANSA OS**; não usar senha principal.
+- [ ] Em **Railway → sansa-os-api → Variables**, definir `ZOHO_IMAP_ENABLED=true`, `ZOHO_IMAP_USER` com login correto da caixa e `ZOHO_IMAP_APP_PASSWORD` como segredo; não salvar no GitHub nem enviar em chat.
+- [ ] Confirmar deploy saudável e executar **E-mail comercial → Sincronizar agora**.
+- [ ] Verificar que só e-mails elegíveis entram no painel, sem marcá-los como lidos; revisar rascunhos e testar duplicação na segunda sincronização.
+- [ ] Documentar origem, destinatário, consentimento e status de cada resposta antes de implementar envio autorizado.
+- [ ] **Somente depois:** projeto de envio aprovado via Zoho (OAuth/SMTP), com logs e confirmação de entrega. Não ativar envio automático prematuramente.
+
+### P1 — Próxima sprint sem integrações externas e sem novas credenciais
+
+- [ ] **Segurança primeiro:** substituir Basic Auth por autenticação de sessões segura e RBAC mínimo (fundadora/operador); revisar acesso a dados de e-mail e propostas. Avaliar mudança dos três repositórios para privado (exige permissão administrativa).
+- [ ] **Base de conhecimento da SANSA:** cadastro versionado de serviços, FAQs, limites de escopo, política de revisões, identidade e links de portfólio verificáveis; não inventar prova social.
+- [ ] **Briefing estruturado:** formulário interno para novos projetos (objetivos, público, entregáveis, prazo desejado, referências, orçamento informado); criar ficha que alimenta propostas sem duplicar CRM oficial.
+- [ ] **Calculadora interna de preço:** estimativa em horas, custo/hora, ferramentas, despesas, margem e impostos definidos pela fundadora; regras e pisos configuráveis, sem precificação inventada por IA.
+- [ ] **Proposta comercial versionada e PDF:** número de revisão, alterações de escopo, validade, etapas, direitos de uso, exclusões e exportação PDF; só condições aprovadas e contrato separado.
+- [ ] **Motor de negociação:** cenários de escopo reduzido/fases/recorrência e comparação entre propostas; bloquear descontos ou promessas não autorizados.
+- [ ] **Simulador dos 5 agentes de atendimento:** testes offline de Identificador, Validador, Atendimento, Negociação e Pós; conversas fictícias, estados e transferências para humano; sem Meta nem modelo pago.
+- [ ] **Fluxo de produção interno:** estados briefing → orçamento → aprovado → execução → revisão → entrega; tarefas, responsáveis e checklists internos sem integração VIU por enquanto.
+- [ ] **Central de aprovações melhorada:** edição, versionamento e histórico de decisões por canal, trilha de auditoria e ações pendentes; aprovação nunca implica envio.
+- [ ] **Indicadores sem dados inventados:** relatórios sobre propostas/etapas efetivamente cadastradas, capacidade de execução e gargalos; sem fingir faturamento.
+
+> Critério: essas entregas podem ser desenvolvidas e testadas com dados fictícios. **Não** interpretar essa independência técnica como autorização para utilizar dados privados reais sem consentimento, controles de segurança e fonte verificada. O CRM Google Sheets permanece o sistema de registro já existente.
 
 ## 0. Infraestrutura
 
