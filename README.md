@@ -63,3 +63,6 @@ npm run start
 
 ## Roteiro mantido no repositório
 Veja [ROADMAP-SANSA-OS.md](ROADMAP-SANSA-OS.md) para o acompanhamento consolidado de CRM, Meta, os cinco agentes, propostas, negociações, pagamentos e integrações futuras. Concluir código e passar no CI não equivale a uma integração externa autenticada.
+
+## Zoho Mail — leitura comercial
+O worker consulta `GET /api/email/status` e, se a integração tiver credenciais, executa `POST /api/email/sync` antes da rotina comercial. A API faz a leitura IMAP, deduplica as mensagens e registra rascunhos pendentes; o worker nunca recebe a senha ou o conteúdo completo dos e-mails. A sincronização acontece **nos dias úteis às 10h de São Paulo**, conforme o cron atual, e pode ser iniciada manualmente a qualquer hora no dashboard. Sem autorização, a integração fica bloqueada sem afetar a prospecção existente. **Nenhum e-mail é enviado.**

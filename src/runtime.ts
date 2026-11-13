@@ -34,6 +34,27 @@ async function main(){
     try{await api.report({agent:"operations",runDate,status:"failed",summary:"Não foi possível verificar o estado operacional.",processed:0,skipped:0});}catch{}
   }
 
+  // Zoho mail intake is independent from the Google Sheets CRM readiness.
+  // No SMTP credentials or client mail contents exist in this worker.
+  try{
+    const status=await api.emailStatus();
+    if(status.configured){
+      const result=await api.syncEmail();
+      console.info(JSON.stringify({
+        agent:"email_intake",status:"completed",
+        added:result.added,drafts:result.drafts,skipped:result.skipped
+      }));
+    }else{
+      console.info(JSON.stringify({agent:"email_intake",status:"blocked",reason:"zoho_imap_not_configured"}));
+    }
+  }catch(error){
+    failed=true;
+    console.error(JSON.stringify({
+      agent:"email_intake",status:"failed",
+      error:error instanceof Error?error.message:"unknown"
+    }));
+  }
+
   // Commercial is a separate agent: makes ONLY internal, reviewable drafts.
   try{
     const queue=await api.workItems();

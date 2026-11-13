@@ -92,3 +92,15 @@
 ## Regras de aceitação
 
 Uma integração só muda para **ativa** depois de execução autenticada e testada no ambiente real. Propostas e cobranças não devem ser enviadas automaticamente antes de um fluxo de consentimento, revisão e confirmação verificável. Nunca usar chaves bancárias inventadas, nem dados pessoais obtidos de scraping.
+
+## Zoho Mail — e-mail comercial
+- [x] Domínio `sansadigital.com.br` verificado e testes de recebimento/envio efetuados no Zoho.
+- [x] Backend preparado para ler a caixa via IMAP seguro somente leitura (mensagens recentes e deduplicação).
+- [x] Aba `E-mail comercial` no SANSA OS e sincronização manual.
+- [x] Worker executa sincronização IMAP somente se credenciais privadas estiverem configuradas.
+- [ ] Habilitar IMAP e gerar senha de aplicativo específica no Zoho Accounts.
+- [ ] Configurar `ZOHO_IMAP_ENABLED`, `ZOHO_IMAP_USER`, `ZOHO_IMAP_APP_PASSWORD` na API Railway.
+- [ ] Testar primeira sincronização real e verificar rascunhos de resposta.
+- [ ] Ligar mensagens ao CRM por correspondência verificada, sem duplicatas ou alterações indevidas.
+- [ ] Envio autorizado após revisão usando Zoho API OAuth/SMTP e registro de entrega (não implementado).
+- [ ] Políticas de retenção LGPD e redução de credenciais para OAuth de escopo mínimo.

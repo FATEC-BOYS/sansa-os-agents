@@ -35,6 +35,14 @@ export class SansaApi {
       {method:"POST",body:JSON.stringify({channel:item.channel,provider:"auto"})},45000
     );
   }
+  async emailStatus(){
+    return this.request<{configured:boolean;lastSyncedAt:string|null;readOnly:boolean}>("/api/email/status");
+  }
+  async syncEmail(){
+    return this.request<{ok:boolean;added:number;skipped:number;drafts:number}>(
+      "/api/email/sync",{method:"POST"},95000
+    );
+  }
   async report(report:RunReport){
     return this.request<{id:string}>("/api/agents/run-report",{
       method:"POST",body:JSON.stringify(report)
